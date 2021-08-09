@@ -1,1 +1,8 @@
-*
+build/
+ci/
+debian/
+data
+utils/
+!utils/docker
+*.md
+tests/

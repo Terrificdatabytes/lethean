@@ -1,0 +1,17 @@
+version: "3"
+services:
+  letheand:
+    container_name: chain-daemon
+    env_file:
+      - .env
+    volumes:
+      - chain:/home/lthn/data/chain/lmdb
+    network_mode: host
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:48782/json_rpc" ]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+    image: "lthn/chain"
+volumes:
+  chain:
